@@ -1,13 +1,21 @@
-FROM n8nio/n8n:latest
+FROM node:20-alpine
 
-# Set working directory
-WORKDIR /home/node/
+WORKDIR /app
 
-# Switch to node user
-USER node
+# Copy package files first (better caching)
+COPY package*.json ./
 
-# Expose n8n port
-EXPOSE 5678
+# Install ALL dependencies (including dev for n8n if needed)
+RUN npm install
 
-# Start n8n
-CMD ["n8n", "start"]
+# Copy app source
+COPY . .
+
+# Set production environment
+ENV NODE_ENV=production
+
+# Expose port Railway uses
+EXPOSE 8080
+
+# Start command (Railway will override if needed)
+CMD ["node", "server.js"]

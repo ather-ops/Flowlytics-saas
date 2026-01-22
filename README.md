@@ -1,4 +1,4 @@
-# Flowlytics AI - Business Intelligence Dashboard
+# AI-Data-Analyst- Business Intelligence Dashboard
 
 [![Railway Deploy](https://railway.app/button.svg)](https://railway.app)
 
@@ -22,5 +22,6 @@ A SaaS platform built with n8n that analyzes e-commerce data to provide revenue 
 - **Database:** PostgreSQL
 - **Hosting:** Railway.app
 - **Authentication:** n8n Basic Auth
+
 
 ##  Project Structure
